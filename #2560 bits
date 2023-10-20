@@ -1,0 +1,49 @@
+#include <iostream>
+#include <cmath>
+#include <fstream>
+using namespace std;
+
+ifstream fin("bits.in");
+ofstream fout("bits.out");
+
+long long int a,copie,x[64],y[64],c=0,q,nrnou,i,p=1,nr,z=0;
+
+int main()
+{
+    
+    fin>>a>>q;
+    for(i=1;i<=q;i++)
+    {
+        fin>>x[i];
+    }
+    copie=a;
+   for(i=1;i<=q;i++)
+    {
+        a=copie;
+        nr=-1;
+        z=0;
+        while(a!=0)
+        {   
+            nrnou=nrnou+a%2*p;
+            nr++;
+            if(x[i]==nr)
+            {
+                fout<<a%2;
+                z=5;
+                break;
+            }
+            a=a/2;
+            p=p*10;
+        }
+        if(z==0)
+        {
+            fout<<0;
+        }
+    }
+        
+    
+
+
+
+    return 0;
+}
